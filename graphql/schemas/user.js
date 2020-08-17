@@ -24,7 +24,7 @@ const queries = `
 
 const mutations = `
     signup(signupInput: SignupInput!): Boolean!
-    login(loginInput: LoginInput!): User
+    login(loginInput: LoginInput!): Boolean!
 `;
 
 module.exports = {

@@ -1,5 +1,4 @@
 const userService = require('../services/user');
-const bcrypt = require('bcrypt');
 
 /* user list method - express
 const userList = (req, res) => {
