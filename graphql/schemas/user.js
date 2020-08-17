@@ -25,7 +25,6 @@ const queries = `
 const mutations = `
     signup(signupInput: SignupInput!): Boolean!
     login(loginInput: LoginInput!): User
-    logout: Boolean!
 `;
 
 module.exports = {

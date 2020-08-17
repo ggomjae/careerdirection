@@ -1,11 +1,6 @@
 const userService = require('../services/user');
 const bcrypt = require('bcrypt');
 
-// user list method
-const userList = ()=> {
-  return userService.userList();
-}
-
 /* user list method - express
 const userList = (req, res) => {
   userService.userList(req)
@@ -18,29 +13,27 @@ const userList = (req, res) => {
 }
 */
 
-// join method
-const joinUser = (req,res) => {
-  
-  bcrypt.hash(password, saltRounds, function(err, passwordHash) {
-        
-    const newUser = {
-        'name' : name,
-        'password' : passwordHash,
-        'email' : email,
-        'role': ['user']
-    }
+/////////////////////////////////////////
+//               GraphQL               //
+/////////////////////////////////////////
 
-    users.create(newUser)
-        .then( (user) => {
-            console.log('success', user.toJSON());
-        })
-        .catch((err) => {
-            console.log('fail', err);
-    });
-});
+// user list method
+const userList = ()=> {
+  return userService.userList();
+}
+
+// user signup method
+const signup = (parent, { signupInput: {name, email, password} }) => {
+  return userService.signup(parent, { signupInput: {name, email, password} });
+}
+
+// user login method
+const login = (parent, { loginInput: {email, password} }) => {
+  return userService.login(parent, { loginInput: {email, password} });
 }
 
 module.exports = {
   userList,
-  joinUser
+  signup,
+  login
 }

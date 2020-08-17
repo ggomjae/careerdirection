@@ -1,16 +1,15 @@
 const userController = require('../../controllers/user');
 
 const queries = {
-    userList: userController.userList
+  userList: userController.userList
 };
 
 const mutations = {
-    // signup: userController.signup,
-    // login: userController.login,
-    // logout: userController.logout
-}
+  signup: userController.signup,
+  login: userController.login
+};
 
 module.exports = {
-    queries,
-    mutations
+  queries,
+  mutations
 };
