@@ -19,6 +19,17 @@ const userList = () => {
 const signup = (parent, { signupInput: {name, email, password} })=> {
   
   return new Promise((resolve, reject) => {
+    
+    User.findOne({where : { 'email' : email }})
+    .then((user) => {
+      if(user){
+        resolve(false);
+      }
+    })
+    .catch((err) => {
+      reject(err);
+    })
+    
     bcrypt.hash(password, saltRounds, function(err, passwordHash) {
       
       const newUser = {
@@ -30,14 +41,15 @@ const signup = (parent, { signupInput: {name, email, password} })=> {
 
       User.create(newUser)
         .then(() => {
-          resolve(true)
+          resolve(true);
         })
         .catch((err) => {
-          reject(err)
+          reject(err);
         });
     });
   });
 }
+
 
 module.exports = {
   userList,
