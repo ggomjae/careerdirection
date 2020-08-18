@@ -6,7 +6,8 @@ const queries = {
 
 const mutations = {
   signup: userController.signup,
-  login: userController.login
+  login: userController.login,
+  verifytoken: userController.verifytoken
 };
 
 module.exports = {
