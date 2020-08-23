@@ -31,8 +31,8 @@ const login = (parent, { loginInput: {email, password} }) => {
   return userService.login(parent, { loginInput: {email, password} });
 }
 
-const verifytoken = (parent, { verifyInput: {token} }) => {
-  return userService.verifytoken(parent, { verifyInput: {token} });
+const verifytoken = (parent, { token }) => {
+  return userService.verifytoken(parent, { token });
 }
 
 module.exports = {

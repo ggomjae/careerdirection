@@ -110,7 +110,7 @@ const getToken = (email, password) => {
 }
 
 // User verify Token
-const verifytoken = (parent, { verifyInput: {token} }) => {
+const verifytoken = (parent, { token }) => {
 
   const clientToken = token;
 

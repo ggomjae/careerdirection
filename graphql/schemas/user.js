@@ -19,9 +19,6 @@ const types = `
     email: String!
     password: String!
   }
-  input VerifyInput {
-    token: String!
-  }
 `;
 
 const queries = `
@@ -32,7 +29,7 @@ const queries = `
 const mutations = `
     signup(signupInput: SignupInput!): Boolean!
     login(loginInput: LoginInput!): String!
-    verifytoken(verifyInput: VerifyInput!): Token!
+    verifytoken(token: String!): Token!
 `;
 
 module.exports = {
